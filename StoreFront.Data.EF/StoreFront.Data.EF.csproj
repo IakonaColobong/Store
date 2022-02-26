@@ -59,7 +59,6 @@
     <Compile Include="Category.cs">
       <DependentUpon>Store.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>Store.tt</DependentUpon>
     </Compile>
@@ -85,6 +84,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Store.edmx</DependentUpon>
     </Compile>
+    <Compile Include="StoreMetadata\StoreMetadata.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Store.edmx">
