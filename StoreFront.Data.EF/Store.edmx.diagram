@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c0fca6437789402aa8933ab5fd4f5cc4" Name="Diagram1">
+        <EntityTypeShape EntityType="StoreModel.AuthorTable" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreModel.BooksTable" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreModel.Category" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreModel.Employee" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreModel.GenreIDTable" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreModel.Stock" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="StoreModel.FK_BooksTable_AuthorTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreModel.FK_BooksTable_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreModel.FK_BooksTable_GenreIDTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreModel.FK_BooksTable_Stock" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreModel.FK_Employees_Employees" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
