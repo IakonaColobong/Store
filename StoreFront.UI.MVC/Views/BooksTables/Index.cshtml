@@ -1,0 +1,123 @@
+﻿@model IEnumerable<StoreFront.Data.EF.BooksTable>
+
+@{
+    ViewBag.Title = "Book Listing";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BooksTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.UnitsSold)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.PublishDate)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.BoookImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorTable.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorTable.LName)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Category.CategoryName)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.GenreIDTable.GenreType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock.StockType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoookImage)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BooksTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.UnitsSold)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishDate)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Publisher)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.BoookImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorTable.FName)
+        </td>
+        <th>
+            @Html.DisplayFor(model => item.AuthorTable.LName)
+        </th>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.GenreIDTable.GenreType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stock.StockType)
+        </td>
+        <td>
+            <a href="@Url.Action("Details",new {id=item.BookID})" title="@item.BooksTitle">
+                <img src="~/Content/imgstore/books/t_@item.BoookImage" alt="Book cover" title="@item.BooksTitle" />
+            </a>
+            @* Image Upload utility step 1 *@
+            @*@Html.DisplayFor(modelItem => item.BookImage)*@
+        </td>
+        <td>
+            <a href="@Url.Action("Details", new { id = item.BookID })" title="@item.BooksTitle">
+                @Html.DisplayFor(modelItem => item.BooksTitle)
+            </a>
+        </td>
+
+
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <td>
+                @*<a href="@Url.Action("Edit", "Edit", new { id = item.BookID })">*@
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BookID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookID })
+
+
+            </td>
+        }
+    </tr>
+
+    }
+
+</table>

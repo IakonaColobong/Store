@@ -1,20 +1,108 @@
-﻿@{
+﻿@model StoreFront.UI.MVC.Models.ContactViewModel
+
+@{
     ViewBag.Title = "Contact";
 }
-<hgroup>
-    <h2>@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
-</hgroup>
-<div>
-    <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
 
-    <address>
-        <i class="icon-envelope"></i><strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <i class="icon-envelope"></i><strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
-</div>
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p>Not seeing what you want or have something intriguing to sell? Let us know by sending us a message!. </p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>1041 Imaginary Land, Sumatra</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>Scrying@Wizardsoffthecoast.net</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Call:</h4>
+                        <p>(232) 232-2323</p>
+                    </div>
+
+                    <!--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>-->
+                </div>
+
+            </div>
+
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Message us!</h4>
+                            @using (Html.BeginForm())
+                            {
+                                @*<form id="contact" action="" method="post">*@
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            @*<input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">*@
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            @*<input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="">*@
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", @placeholder = "Subject" } })
+                                            @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            @*<textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>*@
+                                            @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please type your message here..." } })
+
+                                            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="button">Send Message</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                @*</form>*@
+                            }
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

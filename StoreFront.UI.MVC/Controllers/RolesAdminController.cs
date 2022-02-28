@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace StoreFront.UI.MVC.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class RolesAdminController : Controller
     {
         public RolesAdminController()

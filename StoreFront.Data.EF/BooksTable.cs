@@ -24,6 +24,7 @@ namespace StoreFront.Data.EF
         public Nullable<int> Publisher { get; set; }
         public int StockID { get; set; }
         public Nullable<int> CategoryID { get; set; }
+        public string BoookImage { get; set; }
     
         public virtual AuthorTable AuthorTable { get; set; }
         public virtual Category Category { get; set; }

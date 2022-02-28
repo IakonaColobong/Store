@@ -1,0 +1,33 @@
+﻿@model IEnumerable<StoreFront.Data.EF.Stock>
+
+@{
+    ViewBag.Title = "Stock Status";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StockType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StockID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StockID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StockID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,51 @@
+﻿@model StoreFront.UI.MVC.Models.ContactViewModel
+@{
+    ViewBag.Title = "Email Confirmation";
+}
+
+l<div class="container col d-flex justify-content-center">
+
+    <div class="card text-center" style="width: 20rem;">
+        <div class="card-header">
+            <h4>@ViewBag.Title</h4>
+        </div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subject)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subject)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Message)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Message)
+            </dd>
+
+        </dl>
+        <div class="card-footer">
+         
+            @Html.ActionLink("Back to Home", "Index")
+        </div>
+    </div>
+</div>

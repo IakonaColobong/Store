@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>Store.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>Store.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>Store.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>Store.tt</DependentUpon>
+    </Compile>
     <Compile Include="AuthorTable.cs">
       <DependentUpon>Store.tt</DependentUpon>
     </Compile>
@@ -57,6 +69,9 @@
       <DependentUpon>Store.tt</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
+      <DependentUpon>Store.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Store.tt</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">

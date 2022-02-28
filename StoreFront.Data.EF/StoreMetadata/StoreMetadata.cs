@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace StoreFront.Data.EF//.StoreMetadata
 {
     #region AuthorsTableMetadata
-    public class AuthorTablesMetadata
+    public class AuthorTableMetadata
     {
 
         //public int AuthorID { get; set; }
@@ -23,15 +23,15 @@ namespace StoreFront.Data.EF//.StoreMetadata
         [StringLength(20, ErrorMessage = "Max 20 Characters")]
         public string LName { get; set; }
     }
-    [MetadataType(typeof(AuthorTablesMetadata))]
-    public partial class AuthorTables
+    [MetadataType(typeof(AuthorTableMetadata))]
+    public partial class AuthorTable
     {
-        //custom property
-        //[Display(Name = "Full Name")]
-        //public string FullName
-        //{
-        //    get { return $"{FName} {LName}"; }
-        //}
+       // custom property
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get { return $"{FName} {LName}"; }
+        }
 
     }
 
@@ -43,7 +43,7 @@ namespace StoreFront.Data.EF//.StoreMetadata
     {
 
         //public int BookID { get; set; }
-
+        [Display(Name = "Book Title")]
         [Required(ErrorMessage = "*")]
         [StringLength(50, ErrorMessage = "Must be 50 characters or less")]
         public string BooksTitle { get; set; }
@@ -66,6 +66,9 @@ namespace StoreFront.Data.EF//.StoreMetadata
         public Nullable<System.DateTime> PublishDate { get; set; }
 
 
+        [Display(Name = "Book")]
+        [DisplayFormat(NullDisplayText = "[-N/A-]")]
+        public string BoookImage { get; set; }
         //public Nullable<int> Publisher { get; set; }
 
 
@@ -149,7 +152,7 @@ namespace StoreFront.Data.EF//.StoreMetadata
     #region StockMetadata
     public class StockMetadata
     {
-
+        [Display(Name = "In Stock?")]
         //public int StockID { get; set; }
         [Required(ErrorMessage = "Required Field")]
         [StringLength(20, ErrorMessage = "Maximum of 20 characters")]

@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace StoreFront.UI.MVC.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class UsersAdminController : Controller
     {
         public UsersAdminController()

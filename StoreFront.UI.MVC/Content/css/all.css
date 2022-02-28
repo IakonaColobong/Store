@@ -219,7 +219,7 @@ input[type=submit],
         opacity: 0.9;
     }
 
-body,
+/*body,
 html {
     height: 100%;
 }
@@ -229,7 +229,7 @@ body {
     margin: 0;
     color: #6e6e6e;
     font: 18px Arial, Helvetica, sans-serif;
-}
+}*/
 
 img {
     border-style: none;
@@ -1098,7 +1098,7 @@ div.selector {
     }
 
 .footer-content {
-    max-width: 1170px;
+    /*max-width: 1170px;*/   
     margin: 0 auto;
     padding: 45px 20px 20px;
     color: #a5a5a5;
