@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Error Handling";
+}
+
+@*Custom-built empty view as landing page for the topic.*@
+
+<h2>@ViewBag.Title</h2>
+<div class="col-md-6">
+    <h3>Error Examples</h3>
+
+    @*Action throws uncaught exception*@
+    <p>
+        @Html.ActionLink("Sample Error", "SampleError", "Errors", null, new { @class = "btn btn-primary" })
+    </p>
+
+    @*Directly requests our custom-basic error page*@
+    <p>
+        @Html.ActionLink("Default Custom Error", "Unresolved", "Errors", null, new { @class = "btn btn-primary" })
+    </p>
+
+    @*Action doesn't exist -> 404*@
+    <p>
+        @Html.ActionLink("404 Error", "IncorrectRoute", "Errors", null, new { @class = "btn btn-primary" })
+    </p>
+
+    @*Coded to return 404 intentionally*@
+    <p>
+        @Html.ActionLink("404 Error using MVC HttpNotFound", "Throw404", "Errors", null, new { @class = "btn btn-primary" })
+    </p>
+
+
+    @*Simulates db test. Success = Success page. Failure = caught exception, redirect to custom-specific error page.*@
+    <p>
+        @Html.ActionLink("Test DBOffline Custom Exception", "DBTest", "Errors", null, new { @class = "btn btn-primary" })
+    </p>
+
+
+</div><!--/.col-md-6-->
+
+<div class="col-md-6">
+    <div class="alert alert-info">
+        <h3>Try-Catch</h3>
+        <p>
+            The most common approach to expected errors is to code for them with try-catch blocks. Try the "dangerous code" and if it would have thrown a particular error (or just any error) we can respond with an alternative.
+        </p>
+    </div>
+
+    <div class="alert alert-warning">
+        <h3>Global.asax</h3>
+        <p>
+            The Global.asax provides application-wide, server-side event handling in a .NET language. Standard events include when the application, requests or sessions start/end, as well as unhandled exceptions. See our Application_Error method for general error handling.
+        </p>
+    </div>
+
+
+    <div class="alert alert-success">
+        <h3>Web.config</h3>
+        <p>
+            The Web.config is used to store various site settings in XML. This includes the ability to use the standard ASP.NET error page, or some custom error info. These settings can be adjusted in the system.web section.
+        </p>
+
+        <h4 style="margin: 1em 0 .5em 0;">Common uses</h4>
+        <ul class="list-group">
+            <li class="list-group-item">Update <strong>system.web customErrors tag for mode="Off"</strong> when overriding the default "RemoteOnly" that reduces the amount of error info shown on the live server when an error occurs (useful for debugging faults on live server)</li>
+            <li class="list-group-item">Update <strong>system.web customErrors tag for mode="On"</strong> and <strong>add error tag with statuscode and redirect</strong> to show a specific, custom error pages for different server-code errors, like 404.</li>
+        </ul>
+    </div>
+</div><!--/.col-md-6-->

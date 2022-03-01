@@ -178,6 +178,7 @@
     <Compile Include="Controllers\BooksTablesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\FiltersController.cs" />
     <Compile Include="Controllers\GenreIDTablesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Exceptions\DBOfflineException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,6 +235,7 @@
     <Content Include="Content\fonts\novecentosanswide-light-webfont.svg" />
     <Content Include="Content\fonts\novecentosanswide-medium-webfont.svg" />
     <Content Include="Content\fonts\novecentosanswide-normal-webfont.svg" />
+    <Content Include="Content\images\404 %282%29.png" />
     <Content Include="Content\images\arrows_select%40x2.png" />
     <Content Include="Content\images\arrows_select.png" />
     <Content Include="Content\images\bg_footer_line.gif" />
@@ -847,6 +850,11 @@
     <Content Include="_Archive\2ndTemplateArchive\_Archive\scss\_site-base.scss" />
     <Content Include="_Archive\2ndTemplateArchive\_Archive\scss\_site-blocks.scss" />
     <Content Include="_Archive\2ndTemplateArchive\_Archive\scss\_site-navbar.scss" />
+    <Content Include="Views\Errors\DBOffline.cshtml" />
+    <Content Include="Views\Errors\DBTest.cshtml" />
+    <Content Include="Views\Errors\Index.cshtml" />
+    <Content Include="Views\Errors\NotFound.cshtml" />
+    <Content Include="Views\Errors\Unresolved.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

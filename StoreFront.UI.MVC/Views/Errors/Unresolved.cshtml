@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Oh, Pickles!";
+}
+@*---This is our basic, custom error page. No specific info for user, but it's a better
+    user experience (same "site-feel"/nav, etc) and less info for hackers to use against us
+    than the standard, scary, detailed ASP.NET Exception page.*@
+<div class="col-md-12 text-center">
+    <p class="pickles">@ViewBag.Title</p>
+    <h2 class="text-warning">An Error Has Occured</h2>
+    <p>
+        That was not supposed to happen! We will get right to work trying to fix the issue.<br />
+        In the meantime, you can <a href="/">click here to return to the home page</a>, or try again.
+        If behavior persists, please contact site administrator.
+    </p>
+    <img src="~/Content/imgstore/error.png" />
+</div>
+
+@section htmlHead {
+    <link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
+    <style>
+        .pickles {
+            font-family: 'Freckle Face', cursive;
+            color: #006600;
+            text-shadow: 3px 3px 3px #000;
+            font-size: 7em;
+        }
+    </style>
+}

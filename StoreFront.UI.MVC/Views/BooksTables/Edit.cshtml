@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 <!--additional fields added for image upload utility-->
-@using (Html.BeginForm("Edit", "BooksTable", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "BooksTables", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     

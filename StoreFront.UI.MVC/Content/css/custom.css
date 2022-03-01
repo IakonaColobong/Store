@@ -207,7 +207,7 @@ div#wrapper {
     }
 }
 
-
+/*Custom fonts for title */
 .gifts {
     font-family: 'Lora', serif;
     font-size: 2em;
@@ -219,3 +219,27 @@ div#wrapper {
     font-size: 3em;
    
 }
+/*End Custom Fonts*/
+
+/*404 Error*/
+#bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+
+    #bg img {
+        position: Absolute; 
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        min-width: 50%;
+        min-height: 50%;
+        opacity: 0.5;
+        
+    }
+/*End 404 Error*/
