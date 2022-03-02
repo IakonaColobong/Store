@@ -110,14 +110,16 @@
                     <a href="@Url.Action("Edit", "BooksTables", new { id=item.BookID })">
                         <i class="fa fa-pencil-square-o action-icons" aria-hidden="true"></i>
                     </a>
-                    <a href="@Url.Action("Details", "BooksTables", new { id = item.BookID })">
-                        <i class="fa fa-info-circle action-icons" aria-hidden="true"></i>
-                    </a>
                     <a href="@Url.Action("Delete", "BooksTables", new { id = item.BookID })">
                         <i class="fa fa-trash-o action-icons" aria-hidden="true"></i>
                         </a>
                 </td>
                 }
+                <td>
+                    <a href="@Url.Action("Details", "BooksTables", new { id = item.BookID })">
+                        <i class="fa fa-info-circle action-icons" aria-hidden="true"></i>
+                    </a>
+                </td>
             </tr>
 
         }
