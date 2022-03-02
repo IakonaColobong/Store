@@ -1,5 +1,5 @@
 ﻿@*@model IEnumerable<StoreFront.Data.EF.BooksTable>*@
-    *@model PagedList.IPagedList<StoreFront.Data.EF.BooksTable>
+    @model PagedList.IPagedList<StoreFront.Data.EF.BooksTable>
     @using PagedList.Mvc;
 
 
@@ -9,10 +9,10 @@
 
     <h2>@ViewBag.Title</h2>
 
-    <div class="container-fluid">
+    <div class="container-fluid mt-5 pt-5">
         <row class="topper">
             <section class="BookSearch offset-lg-4 col-7">
-                Search
+                @ViewBag.Title
                 @using (Html.BeginForm("BooksMVCPaging", "Filters", FormMethod.Get))
                 {
                     <p>
@@ -27,7 +27,7 @@
                     that no records are in the Page Count we wont show "Page 1 of 0"
                 *@
 
-                @Html.PagedListPager(Model, page => Url.Action("BooksMVCPaging", new { page, searchString = ViewBag.SearchString }))
+                @Html.PagedListPager(Model, page => Url.Action("BooksMVCPaging", new { page, searchString = ViewBag.SearchString }));
                 @*
                     The code above generates the individual page buttons. It uses the strongly typed collection defined on line 3 of this view.
                     For each page button, we are creating an Url.Action that goes to the BooksMVCPaging method on the Filters controller. It also passes over the next page number.
@@ -46,15 +46,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().UnitsSold)
                 </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.PublishDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Publisher)
-                    </th>*@
-                @*<th>
-                        @Html.DisplayNameFor(model => model.FirstOrDefault().BoookImage)
-                    </th>*@
+          
                 <th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().AuthorTable.FName)
                 </th>
@@ -82,16 +74,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.UnitsSold)
                     </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.PublishDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Publisher)
-                        </td>*@
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.BoookImage)
-                            <img src="~/Content/imgstore/books/t_@item.BookImage" alt="Book cover" title="@item.BookTitle" /> this is a test to use image cannot
-                        </td>*@
+               
                     <td>
                         @Html.DisplayFor(modelItem => item.AuthorTable.FName)
                     </td>

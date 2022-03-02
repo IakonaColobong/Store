@@ -11,6 +11,7 @@ using StoreFront.Data.EF;
 using StoreFront.UI.MVC.Utilities;
 using PagedList; //used for paging features
 using PagedList.Mvc;// brought in for paging features
+using StoreFront.UI.MVC.Models;
 
 namespace StoreFront.UI.MVC.Controllers
 {
@@ -39,6 +40,68 @@ namespace StoreFront.UI.MVC.Controllers
             }
             return View(booksTable);
         }
+
+               
+
+
+        //SHOPPING CART
+        public ActionResult AddToCart(int qty, int bookID)
+        {
+            // shopping cart variable - local
+            Dictionary<int, CartItemViewModel> shoppingCart = null;
+
+            //if the cart isnt empty, this will move the items into the cart above. 
+            if (Session["cart"] != null)
+            {
+                //session cart exists - put its items in the local shoppingCart collection so that they are easier to work with
+                shoppingCart = (Dictionary<int, CartItemViewModel>)Session["cart"];
+                //This is unboxing. Session object gets cast back to its original, more specific type. This is explicit casting.
+            }
+            else
+            {
+                //if session cart doesnt exist yet, we need to instantiate it...create it.
+                shoppingCart = new Dictionary<int, CartItemViewModel>();
+            }
+
+            //find the product the user is trying to add to the cart
+            BooksTable product = db.BooksTables.Where(b => b.BookID == bookID).FirstOrDefault();
+
+            if (product == null)
+            {
+                //if a bad ID was passed to this method, kick the user back to some page to try agai/insert custom error
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                //if book id IS valid, add the line-item to the cart
+                CartItemViewModel item = new CartItemViewModel(qty, product);
+
+                //put item in the local shoppingCart collection. BUT if we already have that product as a cart-item, then we will
+                //update the qty only
+                if (shoppingCart.ContainsKey(product.BookID))
+                {
+                    shoppingCart[product.BookID].Qty += qty;
+                }
+                else
+                {
+                    shoppingCart.Add(product.BookID, item);
+                }
+
+                //now update the Session version of the cart so we can maintain that info between Request and Response cycles
+                Session["cart"] = shoppingCart; //implicit casting aka boxing
+            }
+
+            //send them to a view that shows the list of all items in the cart
+            return RedirectToAction("Index", "ShoppingCart");
+
+        }
+
+
+
+
+
+
+
 
         // GET: BooksTables/Create
         [Authorize(Roles = "Admin")]

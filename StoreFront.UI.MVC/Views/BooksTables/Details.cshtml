@@ -90,22 +90,32 @@
                     </dd>
 
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.Stock.StockType)
-                    </dt>*@
+                @Html.DisplayNameFor(model => model.Stock.StockType)
+            </dt>*@
 
                     <dd>
                         @Html.DisplayFor(model => model.Stock.StockType)
                     </dd>
 
                 </dl>
+                @* Added for shopping cart *@
+                <p>
+                    @using (Html.BeginForm("AddToCart", "BooksTable", new { @bookID = Model.BookID }, FormMethod.Post, new { @class = "text-center" }))
+                    {
+                        @Html.HiddenFor(x => x.BookID)
+                        <span class="label">Quantity: </span>
+                        @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width: 50px;display: inline;" })
+                        <input type="submit" value="Add to Cart" class="btn btn-primary" name="qty" />
+                    }
+                </p>
             </div>
         </div>
     </div>
     <div class="card-footer">
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
 
 
     </div>
