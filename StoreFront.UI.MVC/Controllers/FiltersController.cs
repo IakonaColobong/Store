@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using PagedList.Mvc;
 using StoreFront.Data.EF;
 
 namespace StoreFront.UI.MVC.Controllers
@@ -63,7 +64,7 @@ namespace StoreFront.UI.MVC.Controllers
             int pageSize = 5; //allows us to set how many records/objects are shown per "page"
 
             var books = db.BooksTables.OrderBy(b => b.BooksTitle).ToList(); //this is where our paged list collection will get its data from
-
+            //var book = OrderBy(b => b.BookTitle).ToList(); this originated from directection. unknown in regards to ctx origin. 
             if (!String.IsNullOrEmpty(searchString))
             {
                 books = (

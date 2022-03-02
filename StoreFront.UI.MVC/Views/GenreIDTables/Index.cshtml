@@ -4,44 +4,44 @@
     ViewBag.Title = "Genres";
 }
 
-<h2>@ViewBag.Title</h2>
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 {
     <p>
+        <h2>@ViewBag.Title</h2>
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.GenreType)
-            </th>
-            <th></th>
-        </tr>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GenreType)
+        </th>
+        <th></th>
+    </tr>
 
-        @foreach (var item in Model)
-        {
+    @foreach (var item in Model)
+    {
         <tr>
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {
                 <td>
                     @Html.DisplayFor(modelItem => item.GenreType)
                 </td>
+
                 <td>
-                <td>
-                    <a href="@Url.Action("Edit", "Books", new { id=item.BookID })">
+                    <a href="@Url.Action("Edit", "GenreID", new { id=item.GenreID })">
                         <i class="fa fa-pencil-square-o action-icons" aria-hidden="true"></i>
                     </a>
-                    <a href="@Url.Action("Details", "Books", new { id = item.BookID })">
+                    <a href="@Url.Action("Details", "GenreID", new { id = item.GenreID })">
                         <i class="fa fa-info-circle action-icons" aria-hidden="true"></i>
                     </a>
-                    <a href="@Url.Action("Delete", "Books", new { id = item.BookID })">
+                    <a href="@Url.Action("Delete", "GenreID", new { id = item.GenreID })">
                         <i class="fa fa-trash-o action-icons" aria-hidden="true"></i>
                     </a>
                 </td>
-                </td>
+
             }
         </tr>
-        }
+    }
 
-    </table>
+</table>

@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using StoreFront.Data.EF;
 using StoreFront.UI.MVC.Utilities;
+using PagedList; //used for paging features
+using PagedList.Mvc;// brought in for paging features
 
 namespace StoreFront.UI.MVC.Controllers
 {

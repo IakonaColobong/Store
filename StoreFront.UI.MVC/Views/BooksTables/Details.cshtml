@@ -1,102 +1,113 @@
 ﻿@model StoreFront.Data.EF.BooksTable
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Book Details";
 }
 
-<h2>Details</h2>
+<div class="mt-5 pt-5">
+    <div class="card style=width:10px">
+        <div class="card-header">
+            <h2>@ViewBag.Title</h2>
 
-<div>
-    <h4>BooksTable</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BooksTitle)
-        </dt>
+        </div>
+        <div class="card-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.BooksTitle)
-        </dd>
+            <div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BooksTitle)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.BooksTitle)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitsSold)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UnitsSold)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PublishDate)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UnitsSold)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PublishDate)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.UnitsSold)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Publisher)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PublishDate)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Publisher)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.PublishDate)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BoookImage)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Publisher)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BoookImage)
-            @*<img src="~/Content/images/@Model.Logo" alt="@Model.Name" />*@
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Publisher)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorTable.FName)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BoookImage)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AuthorTable.FName)
-        </dd>
+                    <dd>
+                        <img src="~/Content/imgstore/books/@Model.BoookImage" alt="Book cover" title="@Model.BooksTitle" />
+                        @*<img src="~/Content/images/@Model.Logo" alt="@Model.Name" />*@
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AuthorTable.FName)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.CategoryName)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.AuthorTable.FName)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GenreIDTable.GenreType)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Category.CategoryName)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GenreIDTable.GenreType)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Category.CategoryName)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Stock.StockType)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GenreIDTable.GenreType)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Stock.StockType)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.GenreIDTable.GenreType)
+                    </dd>
 
-    </dl>
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.Stock.StockType)
+                    </dt>*@
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Stock.StockType)
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+
+    </div>
+
 </div>
-<div class="col-md-6">
-    <img src="~/Content/imgstore/books/@Model.BoookImage" alt="Book cover" title="@Model.BooksTitle" />
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

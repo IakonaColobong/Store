@@ -121,7 +121,7 @@ namespace StoreFront.Data.EF//.StoreMetadata
         public string Title { get; set; }
 
         [Display(Name = "Hire Date")]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, NullDisplayText = "[-N/A-")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, NullDisplayText = "[-N/A-]")]
         public Nullable<System.DateTime> HireDate { get; set; }
 
         //[Display(Name = "Reportable To")]

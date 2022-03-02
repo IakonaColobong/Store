@@ -10,30 +10,42 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-}
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th></th>
-    </tr>
+}<div class="container-fluid">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    <section class="BookSearch offset-lg-4 col-7">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
             {
-                <td>
-                    @Html.DisplayFor(modelItem => item.CategoryName)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
-                </td>
+                <tr>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CategoryName)
+                        </td>
+                        <td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Categories", new { id=item.CategoryID })">
+                                <i class="fa fa-pencil-square-o action-icons" aria-hidden="true"></i>
+                            </a>
+                            <a href="@Url.Action("Details", "Categories", new { id = item.CategoryID })">
+                                <i class="fa fa-info-circle action-icons" aria-hidden="true"></i>
+                            </a>
+                            <a href="@Url.Action("Delete", "Categories", new { id = item.CategoryID })">
+                                <i class="fa fa-trash-o action-icons" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                        </td>
+                    }
+                </tr>
             }
-        </tr>
-    }
 
-</table>
+        </table>
+    </section>
+</div>

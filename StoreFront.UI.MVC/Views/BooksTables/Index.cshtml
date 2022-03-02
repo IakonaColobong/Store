@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<StoreFront.Data.EF.BooksTable>
 
-@{
-    ViewBag.Title = "Book Listing";
+   @ViewBag.Title = "Book Listing";
 }
 
-<h2>@ViewBag.Title</h2>
+<div class="container mt-5 pt-5" id="books" >
 
 <p>
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
         @Html.ActionLink("Create New", "Create")
     }
+<h2>@ViewBag.Title</h2>
 </p>
-<div class="container-fluid  col-lg-8">
+   
     <table class="table">
         <tr>
             <th>
@@ -97,11 +97,11 @@
                     @* Image Upload utility step 1 *@
                     @*@Html.DisplayFor(modelItem => item.BookImage)*@
                 </td>
-                <td>
+                @*<td>
                     <a href="@Url.Action("Details", new { id = item.BookID })" title="@item.BooksTitle">
                         @Html.DisplayFor(modelItem => item.BooksTitle)
                     </a>
-                </td>
+                </td>*@
 
 
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
