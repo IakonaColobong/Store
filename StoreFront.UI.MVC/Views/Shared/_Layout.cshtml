@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Academics &mdash; Website by Colorlib</title>
+    <title>Wizards OFF the Coast &mdash; Occult Specialists</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,7 +29,8 @@
     @*<div class="site-wrap">*@
     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close mt-3">#partialLogin
+            <div class="site-mobile-menu-close mt-3">
+                #partialLogin
                 <span class="icon-close2 js-menu-toggle"></span>
             </div>
         </div>
@@ -40,11 +41,11 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-9 d-none d-lg-block">
-                 
+
                     <!--Empty content - fill with background image-->
                 </div>
                 <div class="col-lg-3 text-right">
-               
+
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
@@ -83,7 +84,7 @@
                                     <li class="has-children">
                                         <a href="@Url.Action("About", "Home")" class="nav-link text-left">Admin</a>
                                         <ul class="dropdown">
-                                 
+
 
 
                                             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
@@ -101,18 +102,17 @@
                     </div>
 
 
-                 
-                        </div>
-                    </div>
+
                 </div>
-        
+            </div>
+        </div>
+
     </header>
 
-    <div class="row visible-sm" id="mainContent"></div>
-
+    
 
     @RenderBody()
-
+    @*@RenderPage("/Views/BooksTables/Index.cshtml");*@
     <div class="footer">
         <div class="container">
 

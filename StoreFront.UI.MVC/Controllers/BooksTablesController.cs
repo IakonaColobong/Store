@@ -55,7 +55,7 @@ namespace StoreFront.UI.MVC.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookID,BooksTitle,GenreID,AuthorID,Price,UnitsSold,PublishDate,Publisher,StockID,CategoryID,BoookImage")] BooksTable booksTable, HttpPostedFileBase bookCover)
+        public ActionResult Create([Bind(Include = "BookID,BooksTitle,GenreID,AuthorID,Price,UnitsSold,StockID,BoookImage")] BooksTable booksTable, HttpPostedFileBase bookCover)
         {
             if (ModelState.IsValid)
             {
@@ -67,8 +67,10 @@ namespace StoreFront.UI.MVC.Controllers
                 {
                     file = bookCover.FileName;
                     string ext = file.Substring(file.LastIndexOf('.'));
-                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif", "wepb" };
 
+
+                    //checks uploaded files for acceptable extensions and size
                     if (goodExts.Contains(ext.ToLower()) && bookCover.ContentLength <= 4194304)
                     {
                         //create a new file name using a GUID (Globally Unique Identifier)
@@ -79,7 +81,7 @@ namespace StoreFront.UI.MVC.Controllers
                         int maxImageSize = 500;
                         int maxThumbSize = 100;
 
-                        //static example
+                       
                         ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
                     }
                 }
@@ -128,22 +130,26 @@ namespace StoreFront.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                string file = booksTable.BoookImage;
                 #region File Upload
                 if (bookCover != null)
                 {
                     //get file name
-                    string file = bookCover.FileName;
+                     file = bookCover.FileName;
 
                     //get the file extension
                     string ext = file.Substring(file.LastIndexOf('.'));
 
                     //create a list of good extensions
-                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif", ".webp" };
 
+                    //checks uploaded files for acceptable extensions and size
                     if (goodExts.Contains(ext.ToLower()) && bookCover.ContentLength <= 4194304)
                     {
                         file = Guid.NewGuid() + ext;
                         string savePath = Server.MapPath("~/Content/imgstore/books/");
+
+                        //convert to type image so dimensions can be altered by Image utility
                         Image convertedImage = Image.FromStream(bookCover.InputStream);
                         int maxImageSize = 500;
                         int maxThumbSize = 100;

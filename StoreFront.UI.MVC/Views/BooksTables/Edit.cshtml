@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 <!--additional fields added for image upload utility-->
-@using (Html.BeginForm("Edit", "BooksTable", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "BooksTables", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -61,21 +61,21 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.PublishDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PublishDate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PublishDate, "", new { @class = "text-danger" })
-            </div>
+            </div>*@
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Publisher, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.StockID, "StockID", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -101,8 +101,8 @@
                 @*@Html.EditorFor(model => model.BoookImage, new { htmlAttributes = new { @class = "form-control" } })*@
                 <hr/>
 
-                <input type="file" name="bookCover" />
-                @Html.ValidationMessageFor(model => model.BoookImage, "", new { @class = "text-danger" })
+                <input type="file" style="display: inline" name="bookCover" />
+                @*@Html.ValidationMessageFor(model => model.BoookImage, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -111,7 +111,7 @@
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
-    </div>
+    
 }
 
 <div>

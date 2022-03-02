@@ -46,9 +46,17 @@
             @Html.DisplayFor(modelItem => item.Employee1.FirstName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
+        <td>
+            <a href="@Url.Action("Edit", "Books", new { id=item.BookID })">
+                <i class="fa fa-pencil-square-o action-icons" aria-hidden="true"></i>
+            </a>
+            <a href="@Url.Action("Details", "Books", new { id = item.BookID })">
+                <i class="fa fa-info-circle action-icons" aria-hidden="true"></i>
+            </a>
+            <a href="@Url.Action("Delete", "Books", new { id = item.BookID })">
+                <i class="fa fa-trash-o action-icons" aria-hidden="true"></i>
+            </a>
+        </td>
         </td>
     </tr>
 }

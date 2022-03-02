@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm("Create", "Books", FormMethod.Post, new { @enctype = "multipart/form-data" })) 
+@using (Html.BeginForm("Create", "BooksTables", FormMethod.Post, new { @enctype = "multipart/form-data" })) 
 {
                 @Html.AntiForgeryToken()
 
@@ -31,13 +31,13 @@
         </div>
     </div>
 
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.LabelFor(model => model.AuthorID, "AuthorID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("AuthorID", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.AuthorID, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.LabelFor(model => model.PublishDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.PublishDate, new { htmlAttributes = new { @class = "form-control" } })
@@ -68,7 +68,7 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
-        </div>
+        </div>*@
     </div>
 
     <div class="form-group">
@@ -79,28 +79,22 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.CategoryID, "CategoryID", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
+
+    @*<div class="form-group">
         @Html.LabelFor(model => model.BoookImage, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.BoookImage, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.BoookImage, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
 
     <div class="form-group">
         @Html.LabelFor(model => model.BoookImage, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @*@Html.EditorFor(model => model.BoookImage, new { htmlAttributes = new { @class = "form-control" } })*@
 
-            <input type="file" name="bookCover" />
+            <input type="file"style="display:inline" name="bookCover" />
             @Html.ValidationMessageFor(model => model.BoookImage, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -110,7 +104,7 @@
             <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
-</div>
+
 }
 
 <div>
