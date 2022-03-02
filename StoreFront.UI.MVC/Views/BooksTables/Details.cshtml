@@ -100,7 +100,7 @@
                 </dl>
                 @* Added for shopping cart *@
                 <p>
-                    @using (Html.BeginForm("AddToCart", "BooksTable", new { @bookID = Model.BookID }, FormMethod.Post, new { @class = "text-center" }))
+                    @using (Html.BeginForm("AddToCart", "BooksTables", new { @bookID = Model.BookID }, FormMethod.Post, new { @class = "text-center" }))
                     {
                         @Html.HiddenFor(x => x.BookID)
                         <span class="label">Quantity: </span>
